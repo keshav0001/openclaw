@@ -228,4 +228,11 @@ RUN apt-get update && apt-get install -y curl tar && \
     rm /tmp/go.tar.gz
 
 ENV PATH="/usr/local/go/bin:${PATH}"
+
+# Install Chromium for WhatsApp web login
+RUN apt-get install -y chromium && \
+    node /app/node_modules/playwright-core/cli.js install chromium
+
+ENV PATH="/usr/local/go/bin:${PATH}"
+ENV PLAYWRIGHT_BROWSERS_PATH=/home/node/.cache/ms-playwright
 USER node
