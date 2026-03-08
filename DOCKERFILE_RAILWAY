@@ -222,7 +222,7 @@ CMD ["node", "openclaw.mjs", "gateway", "--allow-unconfigured"]
 FROM ghcr.io/openclaw/openclaw:latest
 USER root
 RUN apt-get update && apt-get install -y curl tar && \
-    curl -fsSL https://go.dev/dl/go1.22.3.linux-amd64.tar.gz -o /tmp/go.tar.gz && \
+    curl -fsSL https://go.dev/dl/go1.26.1.linux-amd64.tar.gz -o /tmp/go.tar.gz && \
     rm -rf /usr/local/go && \
     tar -C /usr/local -xzf /tmp/go.tar.gz && \
     rm /tmp/go.tar.gz
